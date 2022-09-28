@@ -1,14 +1,14 @@
-<%- include('partials/headersignup') -%>
+<%- include('partials/header') -%>
 <main class="container">
   <div class="row justify-content-start fix">
-    <section class="col-6 mt-5">
+    <!-- <section class="col-6 mt-5"> -->
       <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
       <div class="alert alert-danger"><%= el.msg %></div>
       <% }) %> <% } %> <% if (locals.messages.info) { %> <%
       messages.info.forEach( el => { %>
       <div class="alert alert-info"><%= el.msg %></div>
       <% }) %> <% } %>
-      <form action="/signup" method="POST">
+      <!-- <form action="/signup" method="POST">
                     <div class="mb-3">
                         <label for="userName" class="form-label">User Name</label>
                         <i class="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -31,7 +31,26 @@
                         <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
                       </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
-                  </form>
+                  </form> -->
+                  <div class="wrapper fadeInDown">
+                    <div id="formContent">
+                      <!-- Tabs Titles -->
+                  
+                      <!-- Icon -->
+                      <div class="fadeIn first">
+                        <img src="/imgs/icons8-user-67.png" id="icon" alt="User Icon" />
+                      </div>
+                  
+                      <!-- Login Form -->
+                      <form form action="/signup" method="POST">
+                        <input type="text" id="userName" name="userName" class="fadeIn second" placeholder="User Name">
+                        <input type="email" id="email" class="fadeIn third" name="email" placeholder="Email address">
+                        <input type="password" id="password" class="fadeIn fourth" name="password" placeholder="password">
+                        <input type="password"  class="fadeIn fifth"  placeholder="Comfirm Password" id="confirmPassword" name="confirmPassword">
+                        <input type="submit" class="fadeIn six" value="Sign Up">
+                      </form>
+                    </div>
+                  </div>
       <!-- <form class="mx-1 mx-md-2">
         <h2>Sign Up</h2>
         <div class="d-flex flex-row align-items-center mb-4">
@@ -94,7 +113,7 @@
           </button>
         </div>
       </form> -->
-    </section>
+    <!-- </section> -->
   </div>
 </main>
 

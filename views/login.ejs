@@ -2,7 +2,7 @@
 
 <main class="container">
   <div class="row justify-content-center">
-    <section class="col-6 mt-5">
+    <!-- <section class="col-6 mt-5"> -->
       <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
       <div class="alert alert-danger"><%= el.msg %></div>
       <% }) %> <% } %> <% if (locals.messages.info) { %> <%
@@ -43,14 +43,16 @@
           </div>
       
           <!-- Login Form -->
-          <form>
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-            <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+          <form action="/login" method="POST">
+            <input type="text" id="exampleInputEmail1" class="fadeIn second" name="email" placeholder="login">
+            <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
             <input type="submit" class="fadeIn fourth" value="Log In">
           </form>
+        </div>
+      </div>
       
           <!-- Remind Passowrd -->
-    </section>
+    <!-- </section> -->
   </div>
 </main>
 
