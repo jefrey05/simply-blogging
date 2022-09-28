@@ -28,6 +28,14 @@ html {
     button{
         margin-left: 20%;
     }
+    .fix{
+        margin-left: 24%;
+    }
+    label{
+        font-size: 13px;
+        padding: 0;
+    }
+
 }
 /* Small devices (portrait tablets and large phones, 600px and up)
 @media only screen and (min-width: 600px) {...}
