@@ -3,7 +3,7 @@ module.exports = {
     if (req.isAuthenticated()) {
       return next();
     } else {
-      res.redirect("/");
+      res.render("index.ejs");
     }
   },
   ensureGuest: function (req, res, next) {
@@ -11,6 +11,13 @@ module.exports = {
       return next();
     } else {
       res.redirect("/dashboard");
+    }
+  },
+  ensureAuthHome: function (req, res, next) {
+    if (!req.isAuthenticated()) {
+      return next();
+    } else {
+      res.redirect("/home");
     }
   },
 };
