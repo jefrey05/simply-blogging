@@ -1,5 +1,5 @@
 const homeController = require("../controllers/home");
-const Post = require("../models/Post");
+const Blog = require("../models/Blog");
 module.exports = {
   getIndex: (req, res) => {
     //console.log(req)
@@ -8,8 +8,8 @@ module.exports = {
 
   getHome:async (req, res) => {
     try {
-      const posts = await Post.find().sort({ createdAt: "desc" }).lean();
-      res.render("home.ejs", { posts: posts });
+      const blogs = await Blog.find().sort({ createdAt: "desc" }).lean();
+      res.render("home.ejs", { blogs: blogs });
     } catch (err) {
       console.log(err);
     }

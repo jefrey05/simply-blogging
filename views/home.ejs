@@ -3,8 +3,8 @@
 <nav class="mt-5" >
     <div class="d-flex justify-content-around">
         <a href="/home" class=link-primary>Feed</a>
-        <a href="/createBlog" class="link-primary">Create Blog</a>
-        <a href="#" class="link-primary">Popular Blogs</a>
+        <a href="/blog/createBlog" class="link-primary">Create Blog</a>
+        <a href="/blog/popularBlog" class="link-primary">Popular Blogssss</a>
         <!-- will need to obtain user object to verify if user logged in order to display my profile option -->
         <a href="#" class="link-primary">My Profile</a>
         <a href="/logout" class="link-primary">Logout</a>
@@ -13,11 +13,13 @@
 <div class="container">
     <div class="row justify-content-center mt-5">
       <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
+        <% for(var i=0; i<blogs.length; i++) {%>
           <li class="col-6 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
+            <h5><%=blogs[i].title%></h5>
+            <a href="/blog/<%= blogs[i]._id%>">
+              <img class="img-fluid" src="<%= blogs[i].image%>">
             </a>
+            <h5><%=blogs[i].caption%></h5>
           </li>
         <% } %>
         </ul>
