@@ -9,12 +9,12 @@ module.exports = {
       await Comment.create({
         comment: req.body.comment,
         likes: 0,
-        post: req.params.id,
-        createBy:req.user.userName,
+        blog: req.params.id,
+        createdBy:req.user.userName,
         createdById:req.user.id
       });
       console.log("Comment has been added!");
-      res.redirect("/post/"+req.params.id);
+      res.redirect("/blog/"+req.params.id);
     } catch (err) {
       console.log(err);
     }
@@ -23,7 +23,7 @@ module.exports = {
   deleteComments: async (req,res) => {
     try{
       await Comment.deleteOne({_id: req.params.commentid})
-      res.redirect("/post/"+req.params.postid)
+      res.redirect("/blog/"+req.params.blogid)
 
     } catch(err){
 
