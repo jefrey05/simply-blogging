@@ -13,4 +13,5 @@ router.get("/:id", ensureAuth,blogsController.getBlog);
 router.put("/likeBlog/:id", blogsController.likeBlog);
 router.delete("/deleteBlog/:id", blogsController.deleteBlog);
 router.post("/favoriteBlog/:id", favoritesController.favoriteBlog)
+router.post("/favoriteBlogHome/:id", favoritesController.favoriteBlogHome)
 module.exports = router;

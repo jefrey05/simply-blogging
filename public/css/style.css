@@ -7,9 +7,9 @@ a{
     text-decoration: none;
 }
 
-html {
+/* html {
     background-color: #56baed;
-  }
+  } */
   
   body {
     font-family: "Poppins", sans-serif;
@@ -286,11 +286,13 @@ html {
 }
 
 .feeder{
-  border: 2px solid red;
+
+  /* border: 2px solid red; */
   margin-top: 5%;
+  margin-left: 10%;
 }
 .col{
-  border: solid 1px black;
+  /* border: solid 1px black; */
   margin-left: 3%;
 }
 .like-favorite{
@@ -300,4 +302,24 @@ html {
 }
 .like-favorite form{
   width: 83%;
+}
+.fit{
+  /* border: 1px solid black; */
+  width: 100%;
+  height: 100%;
+  background-color: #8fcdeb;
+}
+
+.half{
+  /* border: 1px solid red; */
+  height: 100%;
+}
+
+.yellow{
+  color: rgb(242, 242, 7);
+}
+.fave{
+  text-align: center;
+  margin-top: 3%;
+  color: #8fcdeb;;
 }

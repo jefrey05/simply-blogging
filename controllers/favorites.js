@@ -17,4 +17,18 @@ module.exports = {
       console.log(err);
     }
   },
+
+  favoriteBlogHome: async (req, res) => {
+    try {
+      await Favorite.create({
+        favorite: true,
+        blog: req.params.id,
+        createdBy: req.user.userName,
+        createdById: req.user.id,
+      });
+      res.redirect(`/Home`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
 };

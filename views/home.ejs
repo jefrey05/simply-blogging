@@ -6,7 +6,7 @@
         <a href="/blog/createBlog" class="link-info">Create Blog</a>
         <a href="/blog/popularBlogs" class="link-primary">Popular Blogssss</a>
         <!-- will need to obtain user object to verify if user logged in order to display my profile option -->
-        <a href="#" class="link-primary">My Profile</a>
+        <a href="/profile" class="link-primary">My Profile</a>
         <a href="/logout" class="link-primary">Logout</a>
     </div>
 </nav>
@@ -25,13 +25,14 @@
         </ul>
     </div>
   </div>  -->
-  <div class="row row-cols-1 row-cols-md-6 g-4 feeder">
+  <div class="container">
+  <div class="row row-cols-1 row-cols-md-4 g-3 feeder">
     <% for(var i=0; i<blogs.length; i++) {%>
     <div class="col">
-      <div class="card">
+      <div class="card fit">
         <!-- <img src="<%= blogs[i].image%>" class="card-img-top" alt="..."> -->
         <a href="/blog/<%= blogs[i]._id%>">
-          <img class="img-fluid" src="<%= blogs[i].image%>">
+          <img class="img-fluid half" src="<%= blogs[i].image%>">
         </a>
         <div class="card-body">
           <h5 class="card-title"><%=blogs[i].title%></h5>
@@ -46,7 +47,7 @@
             </form>
 
             <form
-          action="/blog/favoriteBlog/<%= blogs.id %>"
+          action="/blog/favoriteBlogHome/<%= blogs[i]._id %>"
           method="POST"
           class="col-4"
         >
@@ -58,5 +59,5 @@
     </div>
     <% } %>
   </div>
-
+  </div>
 <%- include('partials/footer') -%>

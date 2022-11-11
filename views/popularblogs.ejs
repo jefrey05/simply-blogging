@@ -1,7 +1,9 @@
 <%- include('partials/header') -%>
-<h2><%=arrie%></h2>
-
-<div class="row row-cols-1 row-cols-md-6 g-4 feeder">
+<!-- <h2><%=arrie%></h2> -->
+<h1 class="fave">Favorite Blogs</h1>
+<a href="/Home">Home</a>
+<div class="container">
+<div class="row row-cols-1 row-cols-md-4 g-3 feeder">
     <% for(var i=0; i<blogs.length; i++) {%>
     <div class="col">
       <div class="card">
@@ -17,4 +19,5 @@
     </div>
     <% } %>
   </div>
+</div>
 <%- include('partials/footer') -%>

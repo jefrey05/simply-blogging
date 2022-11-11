@@ -1,5 +1,6 @@
 const homeController = require("../controllers/home");
 const Blog = require("../models/Blog");
+const Favorite = require("../models/Favorites");
 module.exports = {
   getIndex: (req, res) => {
     //console.log(req)
@@ -9,7 +10,8 @@ module.exports = {
   getHome:async (req, res) => {
     try {
       const blogs = await Blog.find().sort({ createdAt: "desc" }).lean();
-      res.render("home.ejs", { blogs: blogs });
+      const favorites = await Favorite.find().lean();
+      res.render("home.ejs", { blogs: blogs,favorites: favorites });
     } catch (err) {
       console.log(err);
     }
