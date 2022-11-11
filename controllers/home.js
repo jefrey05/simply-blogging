@@ -16,4 +16,14 @@ module.exports = {
       console.log(err);
     }
   },
+
+  getProfile: async (req, res) => {
+    //console.log(req.user)
+  try {
+      const blogs = await Blog.find({ user: req.user.id });
+      res.render("profile.ejs", { blogs: blogs, user: req.user });
+    } catch (err) {
+      console.log(err);
+   }
+  },
 };

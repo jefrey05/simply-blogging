@@ -114,13 +114,5 @@ module.exports = {
       res.redirect("/Home");
     }
   },
-  getProfile: async (req, res) => {
-         //console.log(req.user)
-       try {
-           const posts = await Post.find({ user: req.user.id });
-           res.render("profile.ejs", { posts: posts, user: req.user });
-         } catch (err) {
-           console.log(err);
-        }
-       },
+  
 };
