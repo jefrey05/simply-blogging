@@ -1,31 +1,31 @@
-body{
-    margin: 0;
-        padding: 0;
-        background: rgb(238, 241, 197);
+body {
+  margin: 0;
+  padding: 0;
+  background: rgb(238, 241, 197);
 }
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
 /* html {
     background-color: #56baed;
   } */
-  
-  body {
-    font-family: "Poppins", sans-serif;
-    height: 100vh;
-  }
-  h2{
-    margin-left: 14%;
-    margin-bottom: 2%;
-  }
 
-  .fixbutton{
-    margin-top: -3%;
-  }
-  /* Extra small devices (phones, 600px and down) */
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+}
+/* h2 {
+  margin-left: 14%;
+  margin-bottom: 2%;
+} */
+
+/* .fixbutton {
+  margin-top: -3%;
+} */
+/* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-    button{
+  /* button{
         margin-left: 20%;
     }
     .fix{
@@ -34,8 +34,7 @@ a{
     label{
         font-size: 13px;
         padding: 0;
-    }
-
+    } */
 }
 /* Small devices (portrait tablets and large phones, 600px and up)
 @media only screen and (min-width: 600px) {...}
@@ -44,4 +43,4 @@ a{
 /* Large devices (laptops/desktops, 992px and up) */
 /* @media only screen and (min-width: 992px) {...} */
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-/* @media only screen and (min-width: 1200px) {...} */ 
+/* @media only screen and (min-width: 1200px) {...} */

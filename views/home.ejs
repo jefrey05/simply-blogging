@@ -1,33 +1,37 @@
 <%- include('partials/header') -%>
 
-<nav class="mt-5 navbar navbar-expand-sm navbar-light bg-info" >
-    <div class="container">
-        <a class="navbar-brand"href="/home">Blogs</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto ">
-
+<nav class="mt-3 navbar navbar-expand-sm navbar-light bg-info">
+  <div class="container">
+    <a class="navbar-brand" href="/home">Blogs</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link"
-          href="/home">Home</a>
+          <a class="nav-link" href="/home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"href="/blog/createBlog" >Create Blog</a>
+          <a class="nav-link" href="/blog/createBlog">Create Blog</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link"href="/blog/popularBlogs" >Popular Blogs</a>
+          <a class="nav-link" href="/blog/popularBlogs">Popular Blogs</a>
         </li>
         <!-- will need to obtain user object to verify if user logged in order to display my profile option -->
         <li class="nav-item">
-          <a class="nav-link"href="/profile" >My Profile</a></li>
-        <li class="nav-item">
-          <a class="nav-link" href="/logout" >Logout</a>
+          <a class="nav-link" href="/profile">My Profile</a>
         </li>
-          </ul>
-        </div>
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li>
+      </ul>
     </div>
+  </div>
 </nav>
 <!-- <div class="container">
     <div class="row justify-content-center mt-5">
@@ -44,12 +48,12 @@
         </ul>
     </div>
   </div>  -->
-  <div class="container">
-  <div class="row row-cols-1 row-cols-md-4 g-3 feeder">
+<div class="container">
+  <!-- <div class="row row-cols-1 row-cols-md-4 g-3 feeder">
     <% for(var i=0; i<blogs.length; i++) {%>
     <div class="col">
       <div class="card fit">
-        <!-- <img src="<%= blogs[i].image%>" class="card-img-top" alt="..."> -->
+         <img src="<%= blogs[i].image%>" class="card-img-top" alt="..."> 
         <a href="/blog/<%= blogs[i]._id%>">
           <img class="img-fluid half" src="<%= blogs[i].image%>">
         </a>
@@ -77,6 +81,110 @@
       </div>
     </div>
     <% } %>
+  </div> -->
+
+  <!-- <div class="row mb-3 mt-3">
+    <div class="col-md-3 card" style="border: 1px solid red">
+      <img
+        class="card-img-top img-fluid"
+        src="https://source.unsplash.com/random/300x200"
+        alt=""
+      />
+      <div class="card-body">
+        <h4 class="card-title">Card Title</h4>
+        <p class="card-text">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, quas.
+        </p>
+        <a class="btn btn-success d-grid" href="#">Read More</a>
+      </div>
+    </div>
+    <div class="col-sm-3 card" style="border: 1px solid red">
+      <img
+        class="card-img-top"
+        src="https://source.unsplash.com/random/300x200"
+        alt=""
+      />
+      <div class="card-body">
+        <h4 class="card-title">Card Title</h4>
+        <p class="card-text">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, quas.
+        </p>
+        <a class="btn btn-success d-grid" href="#">Read More</a>
+      </div>
+    </div>
+    <div class="col-sm-3 card" style="border: 1px solid red">
+      <img
+        class="card-img-top"
+        src="https://source.unsplash.com/random/300x200"
+        alt=""
+      />
+      <div class="card-body">
+        <h4 class="card-title">Card Title</h4>
+        <p class="card-text">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, quas.
+        </p>
+        <a class="btn btn-success d-grid" href="#">Read More</a>
+      </div>
+    </div> -->
+    <!-- <div class="col-sm-3 card" style="border: 1px solid red">
+      <img
+        class="card-img-top"
+        src="https://source.unsplash.com/random/300x200"
+        alt=""
+      />
+      <div class="card-body card">
+        <h4 class="card-title">Card Title</h4>
+        <p class="card-text">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo, quas.
+        </p>
+        <a class="btn btn-success d-grid" href="#">Read More</a>
+      </div>
+    </div> -->
+    <% let total = 6;%> <% let col = 4;%> <% let row= 2;%>
+     <% for(var i = 0;i<blogs.length;i+=4){%>
+        <% let itemsco= i +4;%>
+        <div class="row mb-3 mt-3 ">
+          <% for(var items= i; items<itemsco;items++) {%>
+        <div class="col-md-3 card" style="border: 1px solid red">
+          <img
+            class="card-img-top"
+            src="<%= blogs[items].image%>"
+            alt=""
+          />
+          <div class="card-body">
+            <h4 class="card-title"><%=blogs[items].title%></h4>
+            <p class="card-text">
+              <%=blogs[items].caption%>
+            </p>
+            <!-- <a class="btn btn-success" href="#">Read More</a> -->
+            <!-- <a href="#" class="card-link">Card link</a> -->
+            <div class="clearfix">
+            <form
+          action="/blog/likeBlog/<%= blogs[i]._id %>?_method=PUT"
+          method="POST"
+        >
+          <a href="#"class="btn btn-primary fa fa-heart float-end" type="submit"></a>
+            </form>
+    
+            <form
+          action="/blog/favoriteBlogHome/<%= blogs[i]._id %>"
+          method="POST"
+        >
+          <a href="#" class="btn btn-primary fa fa-star" type="submit"></a>
+        </form>
+            </div>
+          </div>
+        </div>
+          <% } %>
+      </div>
+      <% } %>
+
+    <!-- <div class="row">
+    <div class="col-sm-3" style="border: 1px solid red">hi</div>
+    <div class="col-sm-3" style="border: 1px solid red">gw</div>
+    <div class="col-sm-3" style="border: 1px solid red">gy</div>
+    <div class="col-sm-3" style="border: 1px solid red">gy</div>
+  </div> -->
   </div>
-  </div>
-<%- include('partials/footer') -%>
+  <%- include('partials/footer') -%>
+</div>
