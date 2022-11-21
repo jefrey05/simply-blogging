@@ -143,6 +143,8 @@
     <% let total = 6;%> <% let col = 4;%> <% let row= 2;%>
      <% for(var i = 0;i<blogs.length;i+=4){%>
         <% let itemsco= i +4;%>
+        <% if(itemsco<= blogs.length){%>
+          break;
         <div class="row mb-3 mt-3 ">
           <% for(var items= i; items<itemsco;items++) {%>
         <div class="col-md-3 card">
@@ -185,6 +187,8 @@
             </div>
           </div>
         </div>
+        
+          <% } %>
           <% } %>
       </div>
       <% } %>
