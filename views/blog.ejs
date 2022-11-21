@@ -3,10 +3,10 @@
 <h1><%=comments%></h1> -->
 <%- include('partials/header') -%>
 <div class="container">
-  <div class="row justify-content-center mt-5">
+  <!-- <div class="row justify-content-center mt-5">
     <div class="col-6">
-      <h2>Title: <%= blog.title %></h2>
-      
+      <h2>Titles: <%= blog.title %></h2>
+
       <img class="img-fluid" src="<%= blog.image%>" />
       <div class="row justify-content-between">
         <form
@@ -43,8 +43,8 @@
       <h2>Add a comment</h2>
       <form action="/comment/createComment/<%=blog._id%>" method="POST">
         <div class="mb-3">
-            <label for="comment" class="form-label">Comment</label>
-            <input type="text" class="form-control" id="comment" name="comment">
+          <label for="comment" class="form-label">Comment</label>
+          <input type="text" class="form-control" id="comment" name="comment" />
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
@@ -52,13 +52,94 @@
     <ul>
       <% for(var i = 0;i < comments.length; i++){%>
       <li class="col-6 justify-content-between mt-5">
-          <%= comments[i].comment%> <%= comments[i].createdBy%>
+        <%= comments[i].comment%> <%= comments[i].createdBy%>
       </li>
       <% } %>
-    </ul>
-    <div class="col-6 mt-5">
-      <a class="btn btn-primary" href="/Home">Return to Profile</a>
-      <a class="btn btn-primary" href="/Home">Return to Feed</a>
+    </ul> -->
+  <div class="card mb-3 mt-5" style="max-width: 90%">
+    <div class="row">
+      <div class="col-md-4">
+        <img src="<%= blog.image%>" class="img-fluid rounded-start" alt="..." />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"><%= blog.title %></h5>
+          <p class="card-text"><%= blog.caption %></p>
+
+          <!-- <ul style="border: 1px solid blue;"> -->
+            
+            <% for(var i = 0;i < comments.length; i++){%>
+            <dl class="row">
+            <dt class="col-sm-3">
+             <%=comments[i].createdBy%>
+            </dt>
+            <dd class="col-sm-10"> <%=comments[i].comment%> </dd>
+          </dl>
+            <% } %>
+         
+
+
+
+        
+        <div class="row" >
+          <form
+            class="col"
+            
+            action="/blog/likeBlog/<%= blog.id %>?_method=PUT"
+            method="POST"
+          >
+            <button
+              class="btn btn-primary fa fa-heart position-relative"
+              type="submit"
+            >
+              <span
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+              >
+                <%= blog.likes %>
+                <span class="visually-hidden">unread messages</span>
+              </span>
+            </button>
+          </form>
+          <!-- <h3 class="col-1" style="border: solid red 1px">
+            Likes: <%= blog.likes %>
+          </h3> -->
+          <%if(blog.user == user.id){ %>
+          <form
+            action="/blog/deleteBlog/<%= blog.id %>?_method=DELETE"
+            method="POST"
+            class="col"
+            
+          >
+            <button class="btn btn-primary fa fa-trash" type="submit"></button>
+          </form>
+
+          <form
+            action="/blog/favoriteBlog/<%= blog.id %>"
+            method="POST"
+            class="col"
+            
+          >
+            <button class="btn btn-primary fa fa-star" type="submit"></button>
+          </form>
+        </div>
+        <%}%>
+      </div>
     </div>
   </div>
+  <div class="mt-3">
+    <a class="btn btn-primary" href="/Home">Go to Profile</a>
+    <a class="btn btn-primary " href="/Home">Return to Feed</a>
+  </div>
+  </div>
+</div>
+<div class="mt-5">
+  <h2>Add a comment</h2>
+  <form action="/comment/createComment/<%=blog._id%>" method="POST">
+    <div class="mb-3">
+      <label for="comment" class="form-label">Comment</label>
+      <input type="text" class="form-control" id="comment" name="comment" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
 </div>

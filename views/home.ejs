@@ -165,7 +165,15 @@
           action="/blog/likeBlog/<%= blogs[i]._id %>?_method=PUT"
           method="POST"
         >
-          <a href="#"class="btn btn-primary fa fa-heart float-end" type="submit"></a>
+          <button href="#"class="btn btn-primary fa fa-heart float-end position-relative" type="submit">
+            <span
+            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+          >
+            <%= blogs[items].likes %>
+            <span class="visually-hidden">unread messages</span>
+          </span>
+
+        </button>
             </form>
     
             <form
