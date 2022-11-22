@@ -141,27 +141,21 @@
       </div>
     </div> -->
     <% let total = 6;%> <% let col = 4;%> <% let row= 2;%>
-     <% for(var i = 0;i<blogs.length;i+=4){%>
-        <% let itemsco= i +4;%>
-        <% if(itemsco<= blogs.length){%>
-          break;
-        <div class="row mb-3 mt-3 ">
-          <% for(var items= i; items<itemsco;items++) {%>
-        <div class="col-md-3 card">
-          <a href="/blog/<%= blogs[items]._id%>">
+    <div class="row mb-3 mt-3 ">
+     <% for(var i = 0;i<blogs.length;i++){%>
+        <div class="col-md-3 card me-3">
+          <a href="/blog/<%= blogs[i]._id%>">
           <img
             class="card-img-top"
-            src="<%= blogs[items].image%>"
+            src="<%= blogs[i].image%>"
             alt=""
           />
           </a>
           <div class="card-body">
-            <h4 class="card-title"><%=blogs[items].title%></h4>
+            <h4 class="card-title"><%=blogs[i].title%></h4>
             <p class="card-text">
-              <%=blogs[items].caption%>
+              <%=blogs[i].caption%>
             </p>
-            <!-- <a class="btn btn-success" href="#">Read More</a> -->
-            <!-- <a href="#" class="card-link">Card link</a> -->
             <div class="clearfix">
             <form
           action="/blog/likeBlog/<%= blogs[i]._id %>?_method=PUT"
@@ -171,7 +165,7 @@
             <span
             class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
           >
-            <%= blogs[items].likes %>
+            <%= blogs[i].likes %>
             <span class="visually-hidden">unread messages</span>
           </span>
 
@@ -187,18 +181,7 @@
             </div>
           </div>
         </div>
-        
-          <% } %>
-          <% } %>
-      </div>
       <% } %>
-
-    <!-- <div class="row">
-    <div class="col-sm-3" style="border: 1px solid red">hi</div>
-    <div class="col-sm-3" style="border: 1px solid red">gw</div>
-    <div class="col-sm-3" style="border: 1px solid red">gy</div>
-    <div class="col-sm-3" style="border: 1px solid red">gy</div>
-  </div> -->
   </div>
   <%- include('partials/footer') -%>
 </div>
