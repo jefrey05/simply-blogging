@@ -11,7 +11,7 @@ const connectDB = require("./config/database");
 const mainRoutes = require("./routes/main");
 //const postRoutes = require("./routes/posts");
 const commentRoutes = require("./routes/comments");
-const blogRoutes =require("./routes/blog")
+const blogRoutes = require("./routes/blog");
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
 
@@ -22,7 +22,8 @@ require("./config/passport")(passport);
 connectDB();
 
 //Using EJS for views
-app.set("view engine", "ejs");
+// app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
 //Static Folder
 app.use(express.static("public"));
@@ -57,8 +58,8 @@ app.use(flash());
 //Setup Routes For Which The Server Is Listening
 app.use("/", mainRoutes);
 //app.use("/post", postRoutes);
-app.use("/comment",commentRoutes)
-app.use("/blog",blogRoutes)
+app.use("/comment", commentRoutes);
+app.use("/blog", blogRoutes);
 
 //Server Running
 app.listen(process.env.PORT, () => {
