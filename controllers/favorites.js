@@ -32,7 +32,7 @@ module.exports = {
           createdById: req.user.id,
         });
       }
-      res.redirect(`/profile`);
+      res.redirect(`/Home`);
     } catch (err) {
       console.log(err);
     }
