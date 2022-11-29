@@ -140,13 +140,13 @@
         <a class="btn btn-success d-grid" href="#">Read More</a>
       </div>
     </div> -->
-    <h3><%=favorites[0]%></h3>
+    <!-- <h3><%=blogs%></h3> -->
     <% let total = 6;%> <% let col = 4;%> <% let row= 2;%>
     <div class="row mb-3 mt-3 ms-4 me-4">
      <% for(var i = 0;i<blogs.length;i++){%>
-        <div class="col-md-3 card me-5 mb-4">
+        <div class="col-lg-3 card me-5 mb-4">
           <a href="/blog/<%= blogs[i]._id%>">
-          <img
+          <img 
             class="card-img-top"
             src="<%= blogs[i].image%>"
             alt=""
@@ -173,12 +173,20 @@
         </button>
             </form>
     
-            <form
-          action="/blog/favoriteBlogHome/<%= blogs[i]._id %>"
+            <!-- <form
+           action="/blog/favoriteBlogHome/<%= blogs[i]._id %>"
           method="POST"
         >
           <a href="#" class="btn btn-primary fa fa-star" type="submit"></a>
-        </form>
+        </form> -->
+        <form
+            action="/blog/favoriteBlogHome/<%= blogs[i]._id %>"
+            method="POST"
+            class="col"
+            
+          >
+            <button class="btn btn-primary fa fa-star" type="submit"></button>
+          </form>
             </div>
           </div>
         </div>

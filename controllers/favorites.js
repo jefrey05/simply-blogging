@@ -20,13 +20,19 @@ module.exports = {
 
   favoriteBlogHome: async (req, res) => {
     try {
-      await Favorite.create({
-        favorite: true,
+      let blog = await Favorite.find({
         blog: req.params.id,
-        createdBy: req.user.userName,
-        createdById: req.user.id,
       });
-      res.redirect(`/Home`);
+      console.log(blog.length);
+      if (blog.length == 0) {
+        await Favorite.create({
+          favorite: true,
+          blog: req.params.id,
+          createdBy: req.user.userName,
+          createdById: req.user.id,
+        });
+      }
+      res.redirect(`/profile`);
     } catch (err) {
       console.log(err);
     }
